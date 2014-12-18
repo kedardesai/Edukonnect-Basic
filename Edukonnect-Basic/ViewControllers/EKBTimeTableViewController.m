@@ -8,6 +8,7 @@
 
 #import "EKBTimeTableViewController.h"
 #import "EKBStudent.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation EKBTimeTableViewController
 
@@ -46,13 +47,22 @@
     NSArray *resultArray = [responseDict objectForKey:TIMETABLE_API_RESULT_KEY];
     NSDictionary *resultDict;
     if ([resultArray count]>0) {
-        resultDict = [resultArray objectAtIndex:0];
+        resultDict = [resultArray objectAtIndex:1];
         self.imageName.text = [resultDict objectForKey:TIMETABLE_API_NAME_KEY];
         self.studentDiv.text = [NSString stringWithFormat:@"%@ - %@",[[resultDict objectForKey:TIMETABLE_API_STD_KEY] stringValue], [[resultDict objectForKey:TIMETABLE_API_DIV_KEY] stringValue]];
     } else {
         self.imageName.text = @"";
         self.studentDiv.text = @"";
     }
+    
+    NSLog(@"ImagePath ::: %@",[NSString stringWithFormat:@"%@%@", TIMETABLE_IMAGE_URL, [resultDict objectForKey:TIMETABLE_API_IMAGEPATH_KEY]]);
+    
+    NSString *imagePath = [[resultDict objectForKey:TIMETABLE_API_IMAGEPATH_KEY] stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    
+    NSLog(@"ImagePath :: %@", imagePath);
+    
+    [self.timeTableImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", TIMETABLE_IMAGE_URL, imagePath]]];
+    [self.timeTableImageView setContentMode:UIViewContentModeScaleAspectFit];
 }
 
 - (void)viewWillAppear:(BOOL)animated

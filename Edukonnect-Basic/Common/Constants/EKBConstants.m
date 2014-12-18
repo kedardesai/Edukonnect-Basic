@@ -33,7 +33,8 @@ NSString *EXAM_LIST_API_URL = @"http://mobi.edukonnect.net.in/RestService.svc/Ge
 NSString *RESULT_LIST_API_URL = @"http://mobi.edukonnect.net.in/RestService.svc/GetResult?";
 NSString *GALLARY_FOLDER_LIST_API_URL = @"http://mobi.edukonnect.net.in/RestService.svc/GetGallaryList?";
 NSString *GALLARY_IMAGE_LIST_API_URL = @"http://mobi.edukonnect.net.in/RestService.svc/GetGallaryDetails?";
-NSString *FORGOT_PWD_API_URL = @"http://mobi.edukonnect.net.in/RestService.svc/ForgotPassword?role=4"; 
+NSString *FORGOT_PWD_API_URL = @"http://mobi.edukonnect.net.in/RestService.svc/ForgotPassword?role=4";
+NSString *TIMETABLE_IMAGE_URL = @"http://www.edukonnect.net.in/Images/Timetable/";
 
 NSString *LOGIN_API_STATUS_KEY = @"status";
 NSString *LOGIN_API_STDLIST_KEY = @"stdlist";
@@ -74,6 +75,7 @@ NSString *TIMETABLE_API_NAME_KEY = @"Name";
 NSString *TIMETABLE_API_SCHOOLID_KEY = @"SchoolID";
 NSString *TIMETABLE_API_ID_KEY = @"id";
 NSString *TIMETABLE_API_STD_KEY = @"std";
+NSString *TIMETABLE_API_IMAGEPATH_KEY = @"ImgPath";
 
 NSString *NOTICE_API_RESULT_KEY = @"GetNoticeResult";
 NSString *NOTICE_API_CREATED_BY_KEY = @"CreatedBy";
