@@ -47,7 +47,7 @@
     NSArray *resultArray = [responseDict objectForKey:TIMETABLE_API_RESULT_KEY];
     NSDictionary *resultDict;
     if ([resultArray count]>0) {
-        resultDict = [resultArray objectAtIndex:1];
+        resultDict = [resultArray objectAtIndex:0];
         self.imageName.text = [resultDict objectForKey:TIMETABLE_API_NAME_KEY];
         self.studentDiv.text = [NSString stringWithFormat:@"%@ - %@",[[resultDict objectForKey:TIMETABLE_API_STD_KEY] stringValue], [[resultDict objectForKey:TIMETABLE_API_DIV_KEY] stringValue]];
     } else {
