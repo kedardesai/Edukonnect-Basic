@@ -25,5 +25,7 @@
 
 + (UIColor *)placeHolderColor;
 
++ (UIColor *)dashbordMenuButtonTextColor;
+
 
 @end

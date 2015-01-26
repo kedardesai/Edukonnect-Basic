@@ -50,4 +50,11 @@
     return [UIColor colorWithRed:205.0f/255.0f green:205.0f/255.0f blue:205.0f/255.0f alpha:1.0f];
 }
 
+#pragma mark DashboardMenuButton TextColor
+
++ (UIColor *)dashbordMenuButtonTextColor
+{
+    return [UIColor colorWithRed:70.0/255.0f green:70.0/255.0f blue:70.0/255.0f alpha:1.0f];
+}
+
 @end
