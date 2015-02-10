@@ -66,6 +66,7 @@
     [studentNameLabel setText:studentObj.studentName];
     
     UILabel *studentDOBValue = (UILabel *)[cell.contentView viewWithTag:102];
+    NSLog(@"student : %@", studentObj.studentDOB);
     NSDate *dobDate = [EKBUtility deserializeJsonDateString:studentObj.studentDOB];
     [studentDOBValue setText:[EKBUtility convertDateToString:dobDate]];
     
