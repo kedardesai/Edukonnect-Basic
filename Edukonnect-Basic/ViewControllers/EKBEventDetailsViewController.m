@@ -49,10 +49,17 @@
         [self.eventTimeLabel setText:[self.eventDict objectForKey:EVENT_API_TIME_KEY]];
     }
     
-    [self.eventMessageTextView setText:[self.eventDict objectForKey:EVENT_API_VENUE_KEY]];
-    
     NSString *imageUrlString = [NSString stringWithFormat:@"http://www.edukonnect.net.in/Images/Event/%@", [self.eventDict objectForKey:EVENT_API_IMAGE_KEY]];
     [self.eventImageView setImageWithURL:[NSURL URLWithString:imageUrlString]];
+    
+    CGRect frame = self.eventTimeLabel.frame;
+    CGRect frameIV = self.eventImageView.frame;
+    [self.eventImageView setFrame:CGRectMake(frameIV.origin.x, frame.origin.y + frame.size.height + 10, frameIV.size.width, frameIV.size.height)];
+    
+    CGRect frameMsg = self.eventMessageTextView.frame;
+    [self.eventMessageTextView setText:[self.eventDict objectForKey:EVENT_API_VENUE_KEY]];
+    [self.eventImageView setFrame:CGRectMake(frameMsg.origin.x, frameIV.origin.y + frameIV.size.height + 10, frameMsg.size.width, frameMsg.size.height)];
+//    self.eventImageView.hidden = YES;
     
     self.navigationController.navigationBar.topItem.title = @"";
 }
