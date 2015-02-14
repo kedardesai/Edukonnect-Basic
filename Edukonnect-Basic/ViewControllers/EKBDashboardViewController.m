@@ -110,6 +110,8 @@
     [gallaryBtnTitle setTextAlignment:NSTextAlignmentCenter];
     [gallaryBtnTitle setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0f]];
     [self.gallaryBtn addSubview:gallaryBtnTitle];
+    
+    [self.dashboardScrollView setContentSize:CGSizeMake(320, 630)];
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -15,7 +15,10 @@
 @property (nonatomic, strong) IBOutlet UILabel *eventTimeLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *eventImageView;
 @property (nonatomic, strong) IBOutlet UITextView *eventMessageTextView;
+@property (nonatomic, strong) IBOutlet UIButton *isGoingButton;
 
 @property (nonatomic, strong) NSMutableDictionary *eventDict;
+
+- (IBAction)isGoingClicked:(id)sender;
 
 @end

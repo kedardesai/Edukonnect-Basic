@@ -38,19 +38,27 @@
 {
     [super viewDidLoad];
     
+    NSLog(@"self.eventDict ::: %@", self.eventDict);
+    
     [self.eventNameLabel setText:[self.eventDict objectForKey:EVENT_API_EVENT_NAME_KEY]];
     
     NSDate *createdDate = [EKBUtility deserializeJsonDateString:[self.eventDict objectForKey:EVENT_API_CREATED_DATE_KEY]];
     [self.eventDateLabel setText:[EKBUtility convertDateToString:createdDate]];
+    [self.eventDateLabel setFrame:CGRectMake(10, 70, 155, 40)];
+    [self.eventDateLabel setTextAlignment:NSTextAlignmentLeft];
+    
     if ([[self.eventDict objectForKey:EVENT_API_TIME_KEY] isEqual:[NSNull null]]) {
         [self.eventTimeLabel setText:@"--"];
         
     } else {
         [self.eventTimeLabel setText:[self.eventDict objectForKey:EVENT_API_TIME_KEY]];
     }
+    [self.eventTimeLabel setFrame:CGRectMake(160, 70, 155, 40)];
+    [self.eventTimeLabel setTextAlignment:NSTextAlignmentRight];
     
     NSString *imageUrlString = [NSString stringWithFormat:@"http://www.edukonnect.net.in/Images/Event/%@", [self.eventDict objectForKey:EVENT_API_IMAGE_KEY]];
     [self.eventImageView setImageWithURL:[NSURL URLWithString:imageUrlString]];
+    [self.eventImageView setFrame:CGRectMake(10, 50, 310, 200)];
     
     CGRect frame = self.eventTimeLabel.frame;
     CGRect frameIV = self.eventImageView.frame;
@@ -58,7 +66,7 @@
     
     CGRect frameMsg = self.eventMessageTextView.frame;
     [self.eventMessageTextView setText:[self.eventDict objectForKey:EVENT_API_VENUE_KEY]];
-    [self.eventImageView setFrame:CGRectMake(frameMsg.origin.x, frameIV.origin.y + frameIV.size.height + 10, frameMsg.size.width, frameMsg.size.height)];
+    [self.eventMessageTextView setFrame:CGRectMake(frameMsg.origin.x, frameIV.origin.y + frameIV.size.height + 10, frameMsg.size.width, frameMsg.size.height)];
 //    self.eventImageView.hidden = YES;
     
     self.navigationController.navigationBar.topItem.title = @"";
@@ -67,6 +75,13 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     self.title = [NSString stringWithFormat:@"Event Details"];
+}
+
+#pragma mark IBAction Methods
+
+- (IBAction)isGoingClicked:(id)sender
+{
+    NSLog(@"Is going clicked...");
 }
 
 @end
