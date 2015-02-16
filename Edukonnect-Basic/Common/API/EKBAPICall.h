@@ -52,6 +52,8 @@ typedef enum {
 
 + (BOOL)forgotPasswordWithEmailId:(NSString *)email;
 
++ (BOOL)userGoingToEventForId:(NSString *)eventId;
+
 //+ (NSMutableDictionary *)callRegisterWith;
 
 @end

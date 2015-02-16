@@ -35,6 +35,7 @@ NSString *GALLARY_FOLDER_LIST_API_URL = @"http://mobi.edukonnect.net.in/RestServ
 NSString *GALLARY_IMAGE_LIST_API_URL = @"http://mobi.edukonnect.net.in/RestService.svc/GetGallaryDetails?";
 NSString *FORGOT_PWD_API_URL = @"http://mobi.edukonnect.net.in/RestService.svc/ForgotPassword?role=4";
 NSString *TIMETABLE_IMAGE_URL = @"http://www.edukonnect.net.in/Images/Timetable/";
+NSString *IS_GOING_EVENT = @"http://mobi.edukonnect.net.in/RestService.svc/SaveEventPreference?";
 
 NSString *LOGIN_API_STATUS_KEY = @"status";
 NSString *LOGIN_API_STDLIST_KEY = @"stdlist";
@@ -115,6 +116,7 @@ NSString *EVENT_API_TIME_KEY = @"Time";
 NSString *EVENT_API_VENUE_KEY = @"Venue";
 NSString *EVENT_API_CHILD_ID_KEY = @"childid";
 NSString *EVENT_API_ISGOING_KEY = @"isgoing";
+NSString *EVENT_API_ID_KEY = @"id";
 NSString *EVENT_API_ISGOING_CONTROL_KEY = @"isgoingcontroltoshow";
 
 NSString *EXAM_API_RESULT_KEY = @"GetExamListResult";
@@ -143,5 +145,6 @@ NSString *GALLARY_IMAGE_API_ID_KEY = @"id";
 NSString *GALLARY_IMAGE_API_IMAGE_KEY = @"imgPath";
 
 NSString *FORGOT_PWD_API_RESULT_KEY = @"ForgotPasswordResult";
+NSString *IS_GOING_API_RESULT_KEY = @"SaveEventPreferenceResult";
 
 @end

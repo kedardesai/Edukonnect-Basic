@@ -69,6 +69,14 @@
     [self.eventMessageTextView setFrame:CGRectMake(frameMsg.origin.x, frameIV.origin.y + frameIV.size.height + 10, frameMsg.size.width, frameMsg.size.height)];
 //    self.eventImageView.hidden = YES;
     
+    // Check isGoingControl if NO then dont show isGoing option
+//    BOOL isGoingControl = 
+//    if (<#condition#>) {
+//        <#statements#>
+//    }
+    
+    // Check isGoing if YES then set button image to selected and disable user interaction.
+    
     self.navigationController.navigationBar.topItem.title = @"";
 }
 
@@ -79,9 +87,16 @@
 
 #pragma mark IBAction Methods
 
-- (IBAction)isGoingClicked:(id)sender
+- (IBAction)isGoingClicked:(UIButton *)senderBtn
 {
     NSLog(@"Is going clicked...");
+    
+    // Check whether isGoing if YES then return;
+    BOOL status = [EKBAPICall userGoingToEventForId:[self.eventDict objectForKey:EVENT_API_ID_KEY]];
+    if (status) {
+        [senderBtn setImage:[UIImage imageNamed:@"Checkbox_Selected"] forState:UIControlStateNormal];
+        [senderBtn setUserInteractionEnabled:NO];
+    }
 }
 
 @end

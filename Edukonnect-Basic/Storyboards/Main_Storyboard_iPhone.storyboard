@@ -567,6 +567,9 @@
                                 <state key="normal" image="Checkbox">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="isGoingClicked:" destination="rc6-PQ-ngo" eventType="touchUpInside" id="ibJ-Bo-B38"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Going" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNh-Ms-xuw">
                                 <rect key="frame" x="54" y="228" width="46" height="21"/>
@@ -585,6 +588,7 @@
                         <outlet property="eventMessageTextView" destination="Qen-N9-zGt" id="uDW-ZZ-lfZ"/>
                         <outlet property="eventNameLabel" destination="Mul-J2-rla" id="vfk-BD-05x"/>
                         <outlet property="eventTimeLabel" destination="mDc-2r-n7R" id="1a1-F2-X2e"/>
+                        <outlet property="isGoingButton" destination="ME4-dg-Sw4" id="lAn-Ke-PuF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wpv-RF-pLf" userLabel="First Responder" sceneMemberID="firstResponder"/>
