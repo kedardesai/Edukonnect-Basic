@@ -16,6 +16,7 @@
 @property (nonatomic, strong) IBOutlet UIImageView *eventImageView;
 @property (nonatomic, strong) IBOutlet UITextView *eventMessageTextView;
 @property (nonatomic, strong) IBOutlet UIButton *isGoingButton;
+@property (nonatomic, strong) IBOutlet UILabel *isGoingLabel;
 
 @property (nonatomic, strong) NSMutableDictionary *eventDict;
 

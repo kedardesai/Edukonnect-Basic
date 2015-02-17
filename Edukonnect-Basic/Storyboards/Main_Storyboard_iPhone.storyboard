@@ -112,6 +112,7 @@
                         <outlet property="newUserButton" destination="uFC-Lv-XpQ" id="Dxx-ia-D8V"/>
                         <outlet property="passwordTextField" destination="iCy-rt-0oZ" id="ABQ-eP-rNP"/>
                         <outlet property="userNameTextField" destination="mZ0-y2-rjh" id="h1c-ww-bkv"/>
+                        <segue destination="vad-cu-TpK" kind="push" identifier="TeacherLoginSegue" id="433-mu-mIs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ejz-d2-lR7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -571,8 +572,8 @@
                                     <action selector="isGoingClicked:" destination="rc6-PQ-ngo" eventType="touchUpInside" id="ibJ-Bo-B38"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Going" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNh-Ms-xuw">
-                                <rect key="frame" x="54" y="228" width="46" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Going / Not Going" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNh-Ms-xuw">
+                                <rect key="frame" x="54" y="228" width="126" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.27450980390000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -589,6 +590,7 @@
                         <outlet property="eventNameLabel" destination="Mul-J2-rla" id="vfk-BD-05x"/>
                         <outlet property="eventTimeLabel" destination="mDc-2r-n7R" id="1a1-F2-X2e"/>
                         <outlet property="isGoingButton" destination="ME4-dg-Sw4" id="lAn-Ke-PuF"/>
+                        <outlet property="isGoingLabel" destination="SNh-Ms-xuw" id="9jv-9P-PNF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wpv-RF-pLf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -788,6 +790,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ooY-va-piI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="411" y="689"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="BoE-2g-Wau">
+            <objects>
+                <viewController id="vad-cu-TpK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oHs-Ir-mRR"/>
+                        <viewControllerLayoutGuide type="bottom" id="R1L-DO-n02"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vmO-S0-FW4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jTw-7O-iQq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BmS-s0-pdl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="800" y="689"/>
         </scene>
         <!--Dashboard View Controller-->
         <scene sceneID="zLc-tz-erX">

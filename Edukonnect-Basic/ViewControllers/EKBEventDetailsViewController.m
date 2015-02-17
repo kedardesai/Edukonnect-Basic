@@ -64,18 +64,24 @@
     CGRect frameIV = self.eventImageView.frame;
     [self.eventImageView setFrame:CGRectMake(frameIV.origin.x, frame.origin.y + frame.size.height + 10, frameIV.size.width, frameIV.size.height)];
     
-    CGRect frameMsg = self.eventMessageTextView.frame;
     [self.eventMessageTextView setText:[self.eventDict objectForKey:EVENT_API_VENUE_KEY]];
-    [self.eventMessageTextView setFrame:CGRectMake(frameMsg.origin.x, frameIV.origin.y + frameIV.size.height + 10, frameMsg.size.width, frameMsg.size.height)];
-//    self.eventImageView.hidden = YES;
     
-    // Check isGoingControl if NO then dont show isGoing option
-//    BOOL isGoingControl = 
-//    if (<#condition#>) {
-//        <#statements#>
-//    }
+    // Check isGoingControl if NO then disable isGoing option
+    BOOL isGoingControl = [[self.eventDict objectForKey:EVENT_API_ISGOING_CONTROL_KEY] boolValue];
+    if (!isGoingControl) {
+        [self.isGoingButton setEnabled:NO];
+        [self.isGoingLabel setEnabled:NO];
+    }
     
     // Check isGoing if YES then set button image to selected and disable user interaction.
+    NSString *isGoingString = [self.eventDict objectForKey:EVENT_API_ISGOING_KEY];
+    
+    if (![isGoingString isEqual:[NSNull null]]) { // isGoing Parameter is not null
+        if ([isGoingString isEqualToString:@"True"]) {
+            [self.isGoingButton setImage:[UIImage imageNamed:@"Checkbox_Selected"] forState:UIControlStateNormal];
+            [self.isGoingButton setUserInteractionEnabled:NO];
+        }
+    }
     
     self.navigationController.navigationBar.topItem.title = @"";
 }
