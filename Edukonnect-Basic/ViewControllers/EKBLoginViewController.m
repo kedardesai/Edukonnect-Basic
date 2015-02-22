@@ -16,6 +16,7 @@
 #import "EKBUtility.h"
 #import "EKBUser.h"
 #import "EKBStudent.h"
+#import "EKBTeacherLoginViewController.h"
 
 @interface EKBLoginViewController ()
 
@@ -57,7 +58,7 @@
     
     self.userNameTextField.layer.cornerRadius = 2;
     [self.userNameTextField setIsAnimated:YES];
-    [self.userNameTextField setTextFieldtype:kTextFieldTypeEmail];
+    [self.userNameTextField setTextFieldtype:kTextFieldTypeCustom];
     [self.userNameTextField setNormalBorderColor:[UIColor KDTextFieldNormalBorderColor] errorBorderColor:[UIColor KDTextFieldErrorBorderColor] normalTextColor:[UIColor KDTextFieldTextColor] errorTextColor:[UIColor KDTextFieldTextColor] normalBorderWidth:1.0f errorBorderWidth:1.0f];
     
     self.passwordTextField.layer.cornerRadius = 2;
@@ -89,7 +90,7 @@
 
 - (void)onError:(NSError *)error withTextField:(KDTextField *)textField
 {
-//    [self showAlertViewWithTitle:@"Error - Invalid Text" andMessage:[error localizedDescription]];
+    [EKBUtility showAlertViewWithTitle:@"Error - Invalid Text" andMessage:[error localizedDescription]];
 }
 
 - (void)onSucess:(KDTextField *)textField
@@ -160,16 +161,39 @@
     [activityIndicatorView startAnimating];
     [self.loginComponentsView addSubview:activityIndicatorView];
     
+    if ([identifier isEqualToString:@"TeacherLoginSegue"]) { // For Teacher Login
+        NSString *string = self.userNameTextField.text;
+        if ([string rangeOfString:@"@"].location == NSNotFound) {
+            return NO;
+        } else {
+            return YES;
+        }
+    }
+    
     
     if ([identifier isEqualToString:@"SuccessfulLoginSegue"]) {
-        [self.userNameTextField validateTextFieldAnimated:YES];
-        [self.passwordTextField validateTextFieldAnimated:YES];
-        if (self.userNameTextField.isValid && self.passwordTextField.isValid) {
+//        [self.userNameTextField validateTextFieldAnimated:NO];
+//        if (!self.userNameTextField.isValid) {
+//            return NO;
+//        }
+        
+        [self.passwordTextField validateTextFieldAnimated:NO];
+        if (!self.passwordTextField.isValid) {
+            return NO;
+        }
+        if (self.passwordTextField.isValid) {
             // Call Login API
             // Save Data in Singleton
             NSMutableDictionary *responseDict = [EKBAPICall callLoginAPIWithUserName:[self.userNameTextField text] andPassword:[self.passwordTextField text]];
             NSLog(@"dictionary : %@", responseDict);
             NSDictionary *loginResult = [responseDict objectForKey:LOGIN_API_LOGINRESULT_KEY];
+            
+            NSString *loginType = [loginResult objectForKey:LOGIN_API_TYPE_KEY];
+            if ([loginType isEqualToString:@"Teacher"]) {
+                [self performSegueWithIdentifier:@"TeacherLoginSegue" sender:self];
+                return NO;
+            }
+            
             if ([[loginResult objectForKey:LOGIN_API_STATUS_KEY] isEqualToString:@"True"]) {
                 NSArray *stdlist = [loginResult objectForKey:LOGIN_API_STDLIST_KEY];
                 EKBUser *userObject = [[EKBUser alloc] init];
@@ -229,20 +253,25 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-//    WebViewContentType contentType;
-//    
-//    if ([[segue identifier] isEqualToString:@"SuccessfulLoginSegue"]) { // For Login
-//        contentType = kAfterLoggedInContent;
-//        
-//    } else if ([[segue identifier] isEqualToString:@"ForgotPasswordSegue"]) { // For Forgot Password
-//        contentType = kForgotPasswordContent;
-//        
-//    } else if ([[segue identifier] isEqualToString:@"NewUserSegue"]) { // For New User
-//        contentType = kNewUserContent;
-//    }
-//    
-//    EKBMainViewController *destinationController = [segue destinationViewController];
-//    destinationController.contentType = contentType;
+    if ([[segue identifier] isEqualToString:@"TeacherLoginSegue"]) { // For Teacher Login
+        
+        NSString *string = self.userNameTextField.text;
+        NSString *userName;
+        NSString *serviceProvider;
+        if ([string rangeOfString:@"@"].location == NSNotFound) {
+            NSLog(@"string does not contain @");
+            
+        } else {
+            NSLog(@"string contains @");
+            NSArray *stringArray = [string componentsSeparatedByString:@"@"];
+            userName = [stringArray objectAtIndex:0];
+            serviceProvider = [stringArray objectAtIndex:1];
+            EKBTeacherLoginViewController *teacherLoginVC = (EKBTeacherLoginViewController *) [segue destinationViewController];
+            NSString *urlString = [[NSString alloc] initWithFormat:@"https://www.edukonnect.net.in/signin.aspx?username=%@&password=%@&end=%@", userName, self.passwordTextField.text, serviceProvider];
+            teacherLoginVC.urlString = urlString;
+        }
+        
+    }
 }
 
 

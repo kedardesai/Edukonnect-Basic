@@ -121,6 +121,9 @@
     [self.schoolName setText:[schoolDetailsDict objectForKey:STUDENT_DETAILS_API_SCHOOLNAME_KEY]];
     
     [self.dashboardScrollView setContentSize:CGSizeMake(320, 740)];
+    
+    UIBarButtonItem *logOutBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"LogOut"] style:UIBarButtonItemStyleDone target:self action:@selector(logoutBtnClicked:)];
+    self.navigationItem.rightBarButtonItem = logOutBtn;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -161,6 +164,14 @@
 - (IBAction)gallaryBtnClicked:(UIButton *)gallaryBtn
 {
     NSLog(@"Gallary button clicked.");
+}
+
+- (void)logoutBtnClicked:(UIBarButtonItem *)logOutBtn
+{
+    self.navigationItem.rightBarButtonItem = nil;
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    [EKBSingleton removeCurrentStudent];
+    [EKBSingleton removeUserObject];
 }
 
 @end

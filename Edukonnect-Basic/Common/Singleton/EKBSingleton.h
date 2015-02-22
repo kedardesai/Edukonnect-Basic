@@ -20,5 +20,6 @@
 
 + (void)saveCurrentStudent:(EKBStudent *)studentObject;
 + (EKBStudent *)loadCurrentStudent;
++ (void)removeCurrentStudent;
 
 @end

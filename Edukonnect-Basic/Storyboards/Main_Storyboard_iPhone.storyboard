@@ -628,13 +628,26 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hbg-d4-1O4">
-                                <rect key="frame" x="0.0" y="159" width="320" height="250"/>
+                                <rect key="frame" x="0.0" y="178" width="320" height="250"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wk8-KW-aVD">
+                                <rect key="frame" x="16" y="136" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.27450980390000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="19"/>
+                                <state key="normal" title="Download Timetable On Device">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="downloadImageClicked:" destination="VmE-CZ-Glf" eventType="touchUpInside" id="aLe-Yt-DWl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="1nQ-TD-tft"/>
                     <connections>
+                        <outlet property="downloadImageBtn" destination="wk8-KW-aVD" id="xB6-Hx-zm1"/>
                         <outlet property="imageName" destination="zrH-9X-KTB" id="nbT-LK-KvI"/>
                         <outlet property="studentDiv" destination="J3R-f6-bqF" id="dK7-lb-67n"/>
                         <outlet property="timeTableImageView" destination="hbg-d4-1O4" id="csg-Qt-z24"/>
@@ -791,10 +804,10 @@
             </objects>
             <point key="canvasLocation" x="411" y="689"/>
         </scene>
-        <!--View Controller-->
+        <!--Teacher Login View Controller-->
         <scene sceneID="BoE-2g-Wau">
             <objects>
-                <viewController id="vad-cu-TpK" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EKBTeacherLoginViewController" id="vad-cu-TpK" customClass="EKBTeacherLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oHs-Ir-mRR"/>
                         <viewControllerLayoutGuide type="bottom" id="R1L-DO-n02"/>
@@ -802,6 +815,12 @@
                     <view key="view" contentMode="scaleToFill" id="vmO-S0-FW4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HME-QM-CII">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="jTw-7O-iQq"/>

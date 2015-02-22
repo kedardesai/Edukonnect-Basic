@@ -36,6 +36,7 @@ NSString *GALLARY_IMAGE_LIST_API_URL = @"http://mobi.edukonnect.net.in/RestServi
 NSString *FORGOT_PWD_API_URL = @"http://mobi.edukonnect.net.in/RestService.svc/ForgotPassword?role=4";
 NSString *TIMETABLE_IMAGE_URL = @"http://www.edukonnect.net.in/Images/Timetable/";
 NSString *IS_GOING_EVENT = @"http://mobi.edukonnect.net.in/RestService.svc/SaveEventPreference?";
+NSString *NOTICE_SEEN_URL_API = @"http://mobi.edukonnect.net.in/RestService.svc/IsSeenNotice?";
 
 NSString *LOGIN_API_STATUS_KEY = @"status";
 NSString *LOGIN_API_STDLIST_KEY = @"stdlist";
@@ -51,6 +52,7 @@ NSString *LOGIN_API_ID_KEY = @"id";
 NSString *LOGIN_API_PINCODE_KEY = @"pincode";
 NSString *LOGIN_API_CITY_KEY = @"vcrcity";
 NSString *LOGIN_API_STATE_KEY = @"vcrstate";
+NSString *LOGIN_API_TYPE_KEY = @"type";
 
 NSString *STUDENT_DETAILS_API_RESULT_KEY = @"studentDetailsResult";
 NSString *STUDENT_DETAILS_API_DOB_KEY = @"DOB";

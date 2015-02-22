@@ -601,4 +601,39 @@
     return status;
 }
 
++ (BOOL)seenNoticeNoticeId:(NSString *)noticeId
+{
+    EKBStudent *currentStudent = [EKBSingleton loadCurrentStudent];
+    NSString *studentId = currentStudent.studentId;
+    NSString *urlString = [NSString stringWithFormat:@"%@NoticeID=%@", NOTICE_SEEN_URL_API, noticeId];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    [theRequest setHTTPMethod:@"GET"];
+    
+    NSURLResponse* response;
+    NSError* error = nil;
+    NSMutableData *webData = [NSURLConnection sendSynchronousRequest:theRequest  returningResponse:&response error:&error].mutableCopy;
+    
+    if (error) {
+        NSLog(@"ERROR ::: %@", [error localizedDescription]);
+        [EKBUtility showAlertViewWithTitle:@"Network Error" andMessage:[error localizedDescription]];
+        return NO;
+    }
+    
+    NSError *localError = nil;
+    
+    NSMutableDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:webData options:kNilOptions error:&localError];
+    
+    if (localError) {
+        NSLog(@"localError ::: %@", [localError localizedDescription]);
+        [EKBUtility showAlertViewWithTitle:@"Network Error" andMessage:[localError localizedDescription]];
+        return NO;
+    }
+    
+    BOOL status = [[dictionary objectForKey:IS_GOING_API_RESULT_KEY] boolValue];
+    return status;
+}
+
+
 @end

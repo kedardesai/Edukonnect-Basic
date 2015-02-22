@@ -65,4 +65,11 @@
     return studentObj;
 }
 
++ (void)removeCurrentStudent
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:CURRENT_STUDENT];
+    [defaults synchronize];
+}
+
 @end

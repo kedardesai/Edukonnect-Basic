@@ -65,6 +65,7 @@
 		1EA28C7B1A1907FF00C84514 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA28C6A1A1907FF00C84514 /* UIWebView+AFNetworking.m */; };
 		1EA28C7E1A192C7400C84514 /* EKBEventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA28C7D1A192C7400C84514 /* EKBEventDetailsViewController.m */; };
 		1EA72B9219EA8F7A00AEDBA7 /* EKBUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA72B9119EA8F7A00AEDBA7 /* EKBUtility.m */; };
+		1EEFE4661A99ECF700CE143F /* EKBTeacherLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EEFE4651A99ECF700CE143F /* EKBTeacherLoginViewController.m */; };
 		1EF1474F1A17E14900E6629B /* EKBNoticeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF1474E1A17E14900E6629B /* EKBNoticeDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -186,6 +187,8 @@
 		1EA28C7D1A192C7400C84514 /* EKBEventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EKBEventDetailsViewController.m; sourceTree = "<group>"; };
 		1EA72B9019EA8F7A00AEDBA7 /* EKBUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EKBUtility.h; sourceTree = "<group>"; };
 		1EA72B9119EA8F7A00AEDBA7 /* EKBUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EKBUtility.m; sourceTree = "<group>"; };
+		1EEFE4641A99ECF700CE143F /* EKBTeacherLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EKBTeacherLoginViewController.h; sourceTree = "<group>"; };
+		1EEFE4651A99ECF700CE143F /* EKBTeacherLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EKBTeacherLoginViewController.m; sourceTree = "<group>"; };
 		1EF1474D1A17E14900E6629B /* EKBNoticeDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EKBNoticeDetailsViewController.h; sourceTree = "<group>"; };
 		1EF1474E1A17E14900E6629B /* EKBNoticeDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EKBNoticeDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -347,6 +350,8 @@
 				1E2E22AD1A1BD1D8003B84E2 /* EKBGallaryFolderViewController.m */,
 				1E2E22AF1A1BDD68003B84E2 /* EKBImageViewController.h */,
 				1E2E22B01A1BDD68003B84E2 /* EKBImageViewController.m */,
+				1EEFE4641A99ECF700CE143F /* EKBTeacherLoginViewController.h */,
+				1EEFE4651A99ECF700CE143F /* EKBTeacherLoginViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -626,6 +631,7 @@
 				1E18785B1A129DCF0087E475 /* EKBNewChildViewController.m in Sources */,
 				1E2E22A21A1BBBBF003B84E2 /* EKBGallaryViewController.m in Sources */,
 				1EA28C441A19006400C84514 /* EKBEventListViewController.m in Sources */,
+				1EEFE4661A99ECF700CE143F /* EKBTeacherLoginViewController.m in Sources */,
 				1EA28C761A1907FF00C84514 /* UIAlertView+AFNetworking.m in Sources */,
 				08DD985519E91911004A5B5A /* UIColor+EKBColor.m in Sources */,
 				1EA28C7A1A1907FF00C84514 /* UIRefreshControl+AFNetworking.m in Sources */,

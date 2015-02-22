@@ -57,11 +57,11 @@
     
     NSLog(@"ImagePath ::: %@",[NSString stringWithFormat:@"%@%@", TIMETABLE_IMAGE_URL, [resultDict objectForKey:TIMETABLE_API_IMAGEPATH_KEY]]);
     
-    NSString *imagePath = [[resultDict objectForKey:TIMETABLE_API_IMAGEPATH_KEY] stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    self.imagePath = [[resultDict objectForKey:TIMETABLE_API_IMAGEPATH_KEY] stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     
-    NSLog(@"ImagePath :: %@", imagePath);
+    NSLog(@"ImagePath :: %@", self.imagePath);
     
-    [self.timeTableImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", TIMETABLE_IMAGE_URL, imagePath]]];
+    [self.timeTableImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", TIMETABLE_IMAGE_URL, self.imagePath]]];
     [self.timeTableImageView setContentMode:UIViewContentModeScaleAspectFit];
 }
 
@@ -69,6 +69,19 @@
 {
     [super viewWillAppear:animated];
     self.title = [NSString stringWithFormat:@"Timetable"];
+}
+
+#pragma mark IBAction Methods
+
+- (IBAction)downloadImageClicked:(id)sender
+{
+    UIImage * resultImage;
+    
+    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", TIMETABLE_IMAGE_URL, self.imagePath]]];
+    resultImage = [UIImage imageWithData:data];
+    
+    //Now it will save this image on device
+    UIImageWriteToSavedPhotosAlbum(resultImage, nil, nil, nil);
 }
 
 @end

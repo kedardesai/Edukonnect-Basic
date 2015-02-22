@@ -54,6 +54,7 @@ typedef enum {
 
 + (BOOL)userGoingToEventForId:(NSString *)eventId;
 
-//+ (NSMutableDictionary *)callRegisterWith;
++ (BOOL)seenNoticeNoticeId:(NSString *)noticeId;
+
 
 @end
