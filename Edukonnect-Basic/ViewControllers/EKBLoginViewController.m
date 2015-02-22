@@ -189,9 +189,11 @@
             NSDictionary *loginResult = [responseDict objectForKey:LOGIN_API_LOGINRESULT_KEY];
             
             NSString *loginType = [loginResult objectForKey:LOGIN_API_TYPE_KEY];
-            if ([loginType isEqualToString:@"Teacher"]) {
-                [self performSegueWithIdentifier:@"TeacherLoginSegue" sender:self];
-                return NO;
+            if (![loginType isKindOfClass:[NSNull class]]) {
+                if ([loginType isEqualToString:@"Teacher"]) {
+                    [self performSegueWithIdentifier:@"TeacherLoginSegue" sender:self];
+                    return NO;
+                }
             }
             
             if ([[loginResult objectForKey:LOGIN_API_STATUS_KEY] isEqualToString:@"True"]) {
