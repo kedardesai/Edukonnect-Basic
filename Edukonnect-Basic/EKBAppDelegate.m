@@ -20,6 +20,11 @@
 {
     [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeSound
+                                                                                                              categories:nil]];
+    }
+    
     if ([EKBSingleton loadUserObject]) {
         EKBUser *currentUser = [EKBSingleton loadUserObject];
         NSMutableDictionary *responseDict = [EKBAPICall callLoginAPIWithUserName:currentUser.userName andPassword:currentUser.password];

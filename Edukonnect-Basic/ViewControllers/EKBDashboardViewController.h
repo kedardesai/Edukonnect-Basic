@@ -17,6 +17,8 @@
 @property (nonatomic, strong) IBOutlet UIButton *resultBtn;
 @property (nonatomic, strong) IBOutlet UIButton *timetableBtn;
 @property (nonatomic, strong) IBOutlet UIButton *gallaryBtn;
+@property (nonatomic, strong) IBOutlet UIImageView *schoolLogo;
+@property (nonatomic, strong) IBOutlet UILabel *schoolName;
 
 - (IBAction)myChildBtnClicked:(UIButton *)myChildBtn;
 - (IBAction)noticeBtnClicked:(UIButton *)noticeBtn;

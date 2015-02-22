@@ -7,6 +7,8 @@
 //
 
 #import "EKBDashboardViewController.h"
+#import "EKBStudent.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation EKBDashboardViewController
 
@@ -111,7 +113,14 @@
     [gallaryBtnTitle setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:16.0f]];
     [self.gallaryBtn addSubview:gallaryBtnTitle];
     
-    [self.dashboardScrollView setContentSize:CGSizeMake(320, 630)];
+    EKBStudent *currentStudent = [EKBSingleton loadCurrentStudent];
+    NSDictionary *schoolDict = [EKBAPICall getStudentDetailsForStudentId:currentStudent.studentId];
+    NSDictionary *schoolDetailsDict = [schoolDict objectForKey:STUDENT_DETAILS_API_RESULT_KEY];
+    NSLog(@"schoolDict :: %@",schoolDict);
+    [self.schoolLogo setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.edukonnect.net.in/Images/uploads/%@",[schoolDetailsDict objectForKey:STUDENT_DETAILS_API_SCHOOLLOGO_KEY]]]];
+    [self.schoolName setText:[schoolDetailsDict objectForKey:STUDENT_DETAILS_API_SCHOOLNAME_KEY]];
+    
+    [self.dashboardScrollView setContentSize:CGSizeMake(320, 740)];
 }
 
 - (void)viewWillAppear:(BOOL)animated

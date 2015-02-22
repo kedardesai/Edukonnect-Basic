@@ -826,7 +826,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <button opaque="NO" tag="100" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ww-XO-bbn">
-                                        <rect key="frame" x="10" y="10" width="145" height="145"/>
+                                        <rect key="frame" x="10" y="120" width="145" height="145"/>
                                         <color key="backgroundColor" red="0.0" green="0.24313725490196078" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
                                         <state key="normal" title="My Child">
@@ -838,7 +838,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="103" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTt-mN-DZa">
-                                        <rect key="frame" x="165" y="165" width="145" height="145"/>
+                                        <rect key="frame" x="165" y="275" width="145" height="145"/>
                                         <color key="backgroundColor" red="0.0" green="0.24313725490196078" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
                                         <state key="normal" title="Result">
@@ -850,7 +850,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="101" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqm-KM-fgG">
-                                        <rect key="frame" x="165" y="10" width="145" height="145"/>
+                                        <rect key="frame" x="165" y="120" width="145" height="145"/>
                                         <color key="backgroundColor" red="0.0" green="0.24313725490196078" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
                                         <state key="normal" title="Notice">
@@ -862,7 +862,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="104" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wjw-N2-lIc">
-                                        <rect key="frame" x="10" y="320" width="145" height="145"/>
+                                        <rect key="frame" x="10" y="430" width="145" height="145"/>
                                         <color key="backgroundColor" red="0.0" green="0.24313725490196078" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
                                         <state key="normal" title="Timetable">
@@ -874,7 +874,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="105" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Q9-QO-4Xh">
-                                        <rect key="frame" x="165" y="320" width="145" height="145"/>
+                                        <rect key="frame" x="165" y="430" width="145" height="145"/>
                                         <color key="backgroundColor" red="0.0" green="0.24313725490196078" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
                                         <state key="normal" title="Gallery">
@@ -886,7 +886,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="102" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrs-Ve-N8R">
-                                        <rect key="frame" x="10" y="165" width="145" height="145"/>
+                                        <rect key="frame" x="10" y="275" width="145" height="145"/>
                                         <color key="backgroundColor" red="0.0" green="0.24313725490196078" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="21"/>
                                         <state key="normal" title="Event">
@@ -897,6 +897,15 @@
                                             <segue destination="NkR-hT-3q9" kind="push" identifier="ShowEventSegue" id="fzi-18-Y20"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H7u-cd-2HY">
+                                        <rect key="frame" x="10" y="10" width="100" height="100"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1K-UQ-Ajf">
+                                        <rect key="frame" x="120" y="10" width="190" height="100"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="19"/>
+                                        <color key="textColor" red="0.0" green="0.27450980390000002" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <connections>
                                     <outlet property="delegate" destination="T0t-bO-JZw" id="flw-ZM-A42"/>
@@ -913,6 +922,8 @@
                         <outlet property="myChildBtn" destination="6Ww-XO-bbn" id="hF9-Wq-6dc"/>
                         <outlet property="noticeBtn" destination="vqm-KM-fgG" id="xlg-mI-SyY"/>
                         <outlet property="resultBtn" destination="XTt-mN-DZa" id="QC6-FN-Qu4"/>
+                        <outlet property="schoolLogo" destination="H7u-cd-2HY" id="UEO-lM-DN9"/>
+                        <outlet property="schoolName" destination="g1K-UQ-Ajf" id="dIc-eU-WoW"/>
                         <outlet property="timetableBtn" destination="Wjw-N2-lIc" id="X54-mv-nHM"/>
                     </connections>
                 </viewController>
