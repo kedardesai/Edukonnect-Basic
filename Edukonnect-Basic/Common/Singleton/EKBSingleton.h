@@ -22,4 +22,8 @@
 + (EKBStudent *)loadCurrentStudent;
 + (void)removeCurrentStudent;
 
++ (void)saveNotificationId:(NSNumber *)notificationId ForStudentId:(NSString *)studentId;
++ (NSNumber *)loadNotificationIdForStudentId:(NSString *)studentId;
++ (void)removeNotificationIdForStudentId:(NSString *)studentId;
+
 @end

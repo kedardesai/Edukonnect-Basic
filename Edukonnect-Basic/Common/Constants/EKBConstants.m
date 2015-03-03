@@ -151,4 +151,6 @@ NSString *GALLARY_IMAGE_API_IMAGE_KEY = @"imgPath";
 NSString *FORGOT_PWD_API_RESULT_KEY = @"ForgotPasswordResult";
 NSString *IS_GOING_API_RESULT_KEY = @"SaveEventPreferenceResult";
 
+NSString *NOTIFICATION_ID = @"id";
+
 @end

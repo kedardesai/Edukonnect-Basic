@@ -819,11 +819,17 @@
                             <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HME-QM-CII">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vad-cu-TpK" id="pL2-A0-RD9"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="jTw-7O-iQq"/>
+                    <connections>
+                        <outlet property="webView" destination="HME-QM-CII" id="dPk-vR-xHG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BmS-s0-pdl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

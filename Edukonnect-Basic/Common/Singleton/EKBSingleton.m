@@ -72,4 +72,27 @@
     [defaults synchronize];
 }
 
++ (void)saveNotificationId:(NSNumber *)notificationId ForStudentId:(NSString *)studentId
+{
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:notificationId];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedObject forKey:studentId];
+    [defaults synchronize];
+}
+
++ (NSNumber *)loadNotificationIdForStudentId:(NSString *)studentId
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *encodedObject = [defaults objectForKey:studentId];
+    NSNumber *notificationId = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    return notificationId;
+}
+
++ (void)removeNotificationIdForStudentId:(NSString *)studentId
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:studentId];
+    [defaults synchronize];
+}
+
 @end

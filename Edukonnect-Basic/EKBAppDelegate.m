@@ -89,7 +89,9 @@
     
     EKBUser *currentUser = [EKBSingleton loadUserObject];
     NSArray *studentList = currentUser.stdList;
-    for (NSString *studentId in studentList) {
+    for (NSNumber *studentIdNumber in studentList) {
+        
+        NSString *studentId = [studentIdNumber stringValue];
         // Create a new notification.
         NSMutableDictionary *responseDictionary = [EKBAPICall checkForBackgroundUpdatesForStudentId:studentId].mutableCopy;
         if (responseDictionary) {
@@ -102,16 +104,26 @@
             NSDictionary *notificationDictionary = [NSJSONSerialization JSONObjectWithData: [notificationString dataUsingEncoding:NSUTF8StringEncoding] options: NSJSONReadingMutableContainers error: &error];
             
             if (!error) {
-                NSDate *now = [NSDate date];
-                UILocalNotification *instantAlarm = [[UILocalNotification alloc] init];
-                if (instantAlarm)
-                {
-                    instantAlarm.fireDate = now;
-                    instantAlarm.timeZone = [NSTimeZone defaultTimeZone];
-                    instantAlarm.repeatInterval = 0;
-                    instantAlarm.alertBody = [notificationDictionary objectForKey:@"Message"];
-                    [app scheduleLocalNotification:instantAlarm];
+                
+                NSNumber *oldNotificationId = [EKBSingleton loadNotificationIdForStudentId:studentId];
+                long notificationId = [[notificationDictionary objectForKey:NOTIFICATION_ID] longValue];
+                NSNumber *newNotificationId = [NSNumber numberWithLong:notificationId];
+                
+                if ((oldNotificationId == nil) || (![newNotificationId isEqualToNumber:oldNotificationId])) {
+                    NSDate *now = [NSDate date];
+                    UILocalNotification *instantAlarm = [[UILocalNotification alloc] init];
+                    if (instantAlarm)
+                    {
+                        instantAlarm.fireDate = now;
+                        instantAlarm.timeZone = [NSTimeZone defaultTimeZone];
+                        instantAlarm.repeatInterval = 0;
+                        instantAlarm.alertBody = [notificationDictionary objectForKey:@"Message"];
+                        [app scheduleLocalNotification:instantAlarm];
+                    }
+                    
+                    [EKBSingleton saveNotificationId:newNotificationId ForStudentId:studentId];
                 }
+                
                 completionHandler(UIBackgroundFetchResultNewData);
             } else {
                 completionHandler(UIBackgroundFetchResultFailed);

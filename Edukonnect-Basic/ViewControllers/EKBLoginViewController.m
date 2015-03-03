@@ -188,7 +188,7 @@
             NSLog(@"dictionary : %@", responseDict);
             NSDictionary *loginResult = [responseDict objectForKey:LOGIN_API_LOGINRESULT_KEY];
             
-            NSString *loginType = [loginResult objectForKey:LOGIN_API_TYPE_KEY];
+            NSString *loginType = [loginResult objectForKey:LOGIN_API_STATUS_KEY];
             if (![loginType isKindOfClass:[NSNull class]]) {
                 if ([loginType isEqualToString:@"Teacher"]) {
                     [self performSegueWithIdentifier:@"TeacherLoginSegue" sender:self];
@@ -264,7 +264,6 @@
             NSLog(@"string does not contain @");
             
         } else {
-            NSLog(@"string contains @");
             NSArray *stringArray = [string componentsSeparatedByString:@"@"];
             userName = [stringArray objectAtIndex:0];
             serviceProvider = [stringArray objectAtIndex:1];
